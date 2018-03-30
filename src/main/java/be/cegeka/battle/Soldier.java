@@ -6,15 +6,24 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 public class Soldier {
 
-    private String name;
+    private final String name;
+    private Weapon weapon = new BearFist();
 
     public Soldier(String name) {
         Validate.isTrue(isNotBlank(name));
-
         this.name = name;
+    }
+
+    public Soldier(String name, Weapon weapon) {
+        this(name);
+        this.weapon = weapon;
     }
 
     String getName() {
         return this.name;
+    }
+
+    public int getWeaponDamage() {
+        return weapon.getDamage();
     }
 }
