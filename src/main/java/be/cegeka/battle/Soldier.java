@@ -12,6 +12,10 @@ public class Soldier {
         Validate.isTrue(isNotBlank(name));
 
         this.name = name;
+
+
+
+
     }
 
     String getName() {
