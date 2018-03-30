@@ -14,11 +14,14 @@ public class Soldier {
         this.name = name;
 
 
-
-
     }
 
     String getName() {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Soldier && this.name.equalsIgnoreCase(((Soldier) obj).getName());
     }
 }
