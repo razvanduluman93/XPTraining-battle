@@ -14,8 +14,6 @@ public class Soldier {
         this.name = name;
 
 
-
-
     }
 
     public Soldier(String name, Weapon weapon) {
