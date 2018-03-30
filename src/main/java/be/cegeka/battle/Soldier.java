@@ -29,8 +29,16 @@ public class Soldier {
         return weapon.getDamage();
     }
 
+    public FightResult fight(Soldier defender) {
+        if (this.getWeaponDamage() >= defender.getWeaponDamage()) {
+            return new FightResult(this, defender);
+        }
+
+        return new FightResult(defender, this);
+    }
+
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Soldier && this.name.equalsIgnoreCase(((Soldier) obj).getName());
+        return obj instanceof Soldier && ((Soldier) obj).getName().equals(this.getName());
     }
 }
