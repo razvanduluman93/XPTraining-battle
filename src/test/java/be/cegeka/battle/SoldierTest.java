@@ -28,4 +28,30 @@ public class SoldierTest {
         new Soldier("   ");
     }
 
+    @Test
+    public void fight_TheAttackerSoldierWithStrongerWeaponWins() {
+        Soldier attacker = new Soldier("Jim", new Sword());
+        Soldier defender = new Soldier("Jimmy");
+
+        FightResult fightResult = attacker.fight(defender);
+        assertThat(fightResult.getWinner()).isEqualTo(attacker);
+    }
+
+    @Test
+    public void fight_ifWeaponHaveSameDamageAttackerWins() {
+        Soldier attacker = new Soldier("Jim", new Sword());
+        Soldier defender = new Soldier("Jimmy", new Sword());
+
+        FightResult fightResult = attacker.fight(defender);
+        assertThat(fightResult.getWinner()).isEqualTo(attacker);
+    }
+
+    @Test
+    public void fight_TheDefenderSoldierWithStrongerWeaponWins() {
+        Soldier attacker = new Soldier("Jim");
+        Soldier defender = new Soldier("Jimmy", new Sword());
+
+        FightResult fightResult = attacker.fight(defender);
+        assertThat(fightResult.getWinner()).isEqualTo(defender);
+    }
 }
